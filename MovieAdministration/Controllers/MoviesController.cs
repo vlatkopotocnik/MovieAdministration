@@ -19,14 +19,14 @@ namespace MovieAdministration.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movies>>> GetMovies_1()
         {
-            return await _context.Movies_1.ToListAsync();
+            return await _context.Movies.ToListAsync();
         }
 
         // GET: api/Movies/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Movies>> GetMovies(int id)
         {
-            var movies = await _context.Movies_1.FindAsync(id);
+            var movies = await _context.Movies.FindAsync(id);
 
             if (movies == null)
             {
@@ -72,7 +72,7 @@ namespace MovieAdministration.Controllers
         [HttpPost]
         public async Task<ActionResult<Movies>> PostMovies(Movies movies)
         {
-            _context.Movies_1.Add(movies);
+            _context.Movies.Add(movies);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetMovies", new { id = movies.Id }, movies);
@@ -82,13 +82,13 @@ namespace MovieAdministration.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovies(int id)
         {
-            var movies = await _context.Movies_1.FindAsync(id);
+            var movies = await _context.Movies.FindAsync(id);
             if (movies == null)
             {
                 return NotFound();
             }
 
-            _context.Movies_1.Remove(movies);
+            _context.Movies.Remove(movies);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -96,7 +96,7 @@ namespace MovieAdministration.Controllers
 
         private bool MoviesExists(int id)
         {
-            return _context.Movies_1.Any(e => e.Id == id);
+            return _context.Movies.Any(e => e.Id == id);
         }
     }
 }

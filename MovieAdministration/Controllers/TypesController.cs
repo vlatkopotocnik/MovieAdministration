@@ -19,14 +19,14 @@ namespace MovieAdministration.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Types>>> GetTypes_1()
         {
-            return await _context.Types_1.ToListAsync();
+            return await _context.Types.ToListAsync();
         }
 
         // GET: api/Types/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Types>> GetTypes(int id)
         {
-            var types = await _context.Types_1.FindAsync(id);
+            var types = await _context.Types.FindAsync(id);
 
             if (types == null)
             {
@@ -72,7 +72,7 @@ namespace MovieAdministration.Controllers
         [HttpPost]
         public async Task<ActionResult<Types>> PostTypes(Types types)
         {
-            _context.Types_1.Add(types);
+            _context.Types.Add(types);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTypes", new { id = types.Id }, types);
@@ -82,13 +82,13 @@ namespace MovieAdministration.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTypes(int id)
         {
-            var types = await _context.Types_1.FindAsync(id);
+            var types = await _context.Types.FindAsync(id);
             if (types == null)
             {
                 return NotFound();
             }
 
-            _context.Types_1.Remove(types);
+            _context.Types.Remove(types);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -96,7 +96,7 @@ namespace MovieAdministration.Controllers
 
         private bool TypesExists(int id)
         {
-            return _context.Types_1.Any(e => e.Id == id);
+            return _context.Types.Any(e => e.Id == id);
         }
     }
 }

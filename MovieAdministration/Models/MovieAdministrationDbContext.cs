@@ -8,21 +8,14 @@ namespace MovieAdministration.Models
     {
         public MovieAdministrationDbContext(Microsoft.EntityFrameworkCore.DbContextOptions options) : base(options) { }
         public DbSet<Employees> Employees { get; set; }
-        public DbSet<Employees> Genres { get; set; }
-        public DbSet<Employees> Movie_Actors { get; set; }
-        public DbSet<Employees> Movies { get; set; }
-        public DbSet<Employees> Types { get; set; }
+        public DbSet<Genres> Genres { get; set; }
+        public DbSet<Movie_Actors> Movie_Actors { get; set; }
+        public DbSet<Movie_Genres> Movie_Genres { get; set; }
+        public DbSet<Movies> Movies { get; set; }
+        public DbSet<Types> Types { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         }
-
-        public DbSet<MovieAdministration.Models.Genres> Genres_1 { get; set; }
-
-        public DbSet<MovieAdministration.Models.Movie_Actors> Movie_Actors_1 { get; set; }
-
-        public DbSet<MovieAdministration.Models.Movies> Movies_1 { get; set; }
-
-        public DbSet<MovieAdministration.Models.Types> Types_1 { get; set; }
     }
 }
