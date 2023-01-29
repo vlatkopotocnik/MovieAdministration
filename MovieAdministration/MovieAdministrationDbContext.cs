@@ -1,12 +1,11 @@
-﻿using System.Data.Entity.ModelConfiguration.Conventions;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MovieAdministration.Models;
 
-namespace MovieAdministration.Models
+namespace MovieAdministration
 {
-    public class MovieAdministrationDbContext : Microsoft.EntityFrameworkCore.DbContext
+    public class MovieAdministrationDbContext : DbContext
     {
-        public MovieAdministrationDbContext(Microsoft.EntityFrameworkCore.DbContextOptions options) : base(options) { }
+        public MovieAdministrationDbContext(DbContextOptions options) : base(options) { }
         public DbSet<Employees> Employees { get; set; }
         public DbSet<Genres> Genres { get; set; }
         public DbSet<Movie_Actors> Movie_Actors { get; set; }

@@ -8,9 +8,11 @@ namespace MovieAdministration.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int ExpectedBudget { get; set; }
+        public decimal ExpectedBudget { get; set; }
         public bool isCalled { get; set; }
         public bool isActing { get; set; }
+        public bool isBudgetChangeRequested { get; set; }
+        public decimal RequestedBudgetChange { get; set; }
         public int MovieId { get; set; }
         public int ActorId { get; set; }
         public virtual Movies Movie { get; set; }
